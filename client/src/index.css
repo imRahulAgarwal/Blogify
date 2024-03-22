@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+    height: 100%;
+    background-color: #e8e8e8;
+}
+
+header {
+    border-bottom: 3px solid #8c8c8c;
+    width: 100%;
+    color: #1a1a1a;
+    list-style: none;
+    display: flex;
+    font-size: 1.25rem;
+    z-index: 999;
+    line-height: 1.75rem;
+    font-weight: 500;
+    top: 0;
+    background-color: #e8e8e8;
+}
+
+.website-name {
+    color: #1a1a1a;
+    font-family: "Merriweather", serif;
+    text-align: center;
+    font-size: 3.5rem;
+    line-height: 1;
+    font-weight: bold;
+}
+
+.website-tagline {
+    color: #4d4d4d;
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.explore-btn {
+    background-color: #8c8c8c;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    transition: 0.15s ease-in-out;
+}
+
+.home-section {
+    border-bottom: 2px solid black;
+}
+
+.explore-btn:hover {
+    color: #fff;
+}
+
+.section-title {
+    text-align: center;
+    font-family: "Lato", serif;
+    font-size: 1.75rem;
+}
+
+.blog-section-title {
+    font-size: 2.25rem;
+    font-weight: 600;
+}
+
+.blog-title {
+    font-weight: 600;
+    font-family: "Lato", sans-serif;
+}
+
+.blog-published-by {
+    font-size: 1.2rem;
+    font-weight: 350;
+}
+
+.blog-published-at {
+    font-size: 1rem;
+}
+
+.cta-blog-btn {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    text-align: center;
+    font-weight: 500;
+    border-radius: 0.5rem;
+}
+
+textarea::-webkit-scrollbar {
+    width: 0;
+}
+
+.footer-title {
+    font-size: 4rem;
+    font-family: "Lato", sans-serif;
+}
+
+.footer-tagline {
+    font-size: 1.2rem;
+}
+
+.about-us-title {
+    font-size: 2.5rem;
+    font-family: "Lato", sans-serif;
+}
+
+.not-found {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    border: 2px dashed black;
+    padding: 6px;
+    text-align: center;
+    margin: 0 auto;
+}
