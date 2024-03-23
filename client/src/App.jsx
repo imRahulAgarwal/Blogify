@@ -11,7 +11,7 @@ import ScrollToTop from "./hooks/ScrollToTop";
 const App = () => {
     const dispatch = useDispatch();
     const { userData } = useSelector((state) => state.auth);
-    const { pageNumber, authourId } = useSelector((state) => state.blog);
+    const { pageNumber, authorId } = useSelector((state) => state.blog);
 
     useEffect(() => {
         authService.profile().then(({ user }) => {
@@ -24,11 +24,11 @@ const App = () => {
     }, []);
 
     useEffect(() => {
-        blogService.getBlogs(pageNumber, authourId).then((data) => {
+        blogService.getBlogs(pageNumber, authorId).then((data) => {
             if (data.blogs) dispatch(setBlogs(data));
             else dispatch(setBlogs([]));
         });
-    }, [pageNumber, authourId, userData]);
+    }, [pageNumber, authorId, userData]);
 
     return (
         <div className="flex flex-col min-h-screen relative">

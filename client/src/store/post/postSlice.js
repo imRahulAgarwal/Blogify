@@ -4,7 +4,7 @@ const initialState = {
     blogs: [],
     totalPages: 1,
     pageNumber: 1,
-    authourId: null,
+    authorId: null,
 };
 
 const postSlice = createSlice({
@@ -29,7 +29,7 @@ const postSlice = createSlice({
             state.pageNumber = 1;
         },
         setAuthorId: (state, action) => {
-            state.authourId = action.payload;
+            state.authorId = action.payload;
         },
     },
 });
