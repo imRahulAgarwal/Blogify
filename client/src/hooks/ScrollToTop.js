@@ -5,7 +5,7 @@ import { setAuthorId, setPageNumber } from "../store/post/postSlice";
 
 const ScrollToTop = () => {
     const { pathname } = useLocation();
-    const { pageNumber } = useSelector((state) => state.blog);
+    const { pageNumber, authorId } = useSelector((state) => state.blog);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -21,7 +21,9 @@ const ScrollToTop = () => {
 
     useEffect(() => {
         dispatch(setPageNumber());
-        dispatch(setAuthorId(null));
+
+        if (pathname.includes("my-blogs")) dispatch(setAuthorId(authorId));
+        else dispatch(setAuthorId(null));
     }, [pathname]);
 };
 

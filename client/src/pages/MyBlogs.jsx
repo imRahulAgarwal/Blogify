@@ -1,16 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Card, Container, Pagination } from "../import";
-import { useDispatch, useSelector } from "react-redux";
-import { setAuthorId } from "../store/post/postSlice";
+import { useSelector } from "react-redux";
 
 const MyBlogs = () => {
     const { blogs } = useSelector((state) => state.blog);
-    const { _id } = useSelector((state) => state.auth?.userData || {});
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(setAuthorId(_id));
-    }, [_id]);
 
     return (
         <Container classes="flex flex-col my-auto mt-40">
