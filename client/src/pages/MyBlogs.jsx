@@ -5,7 +5,7 @@ import { setAuthorId } from "../store/post/postSlice";
 
 const MyBlogs = () => {
     const { blogs } = useSelector((state) => state.blog);
-    const { _id } = useSelector((state) => state.auth?.userData);
+    const { _id } = useSelector((state) => state.auth?.userData || {});
     const dispatch = useDispatch();
 
     useEffect(() => {
