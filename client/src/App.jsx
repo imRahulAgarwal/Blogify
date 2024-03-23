@@ -33,7 +33,7 @@ const App = () => {
 
     return (
         <div className="flex flex-col min-h-screen relative">
-            {!userData._id ? (
+            {!userData && !userData._id ? (
                 <ScaleLoader />
             ) : (
                 <>
