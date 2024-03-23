@@ -21,7 +21,7 @@ const ForgotPassword = () => {
         <div className="min-h-screen flex">
             <Container classes="flex flex-col my-auto">
                 {loader ? (
-                    <ScaleLoader />
+                    <ScaleLoader className="mx-auto my-auto" />
                 ) : (
                     <div className="shadow-xl mx-auto rounded-lg max-w-xl w-full bg-white py-5 px-5">
                         <h1 className="section-title">Forgot Password</h1>
