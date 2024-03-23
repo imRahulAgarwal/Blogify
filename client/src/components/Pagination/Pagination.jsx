@@ -9,15 +9,15 @@ const Pagination = () => {
         <div className="flex mx-auto my-5">
             <button
                 onClick={() => dispatch(decreasePageNumber())}
-                className="mx-2 bg-blue-300 hover:bg-blue-400 px-6 py-3 rounded-lg">
+                className="mx-2 bg-blue-300 hover:bg-blue-400 px-6 py-3 max-sm:px-4 max-sm:py-1 rounded-lg">
                 Prev Page
             </button>
             <span className="mx-2 my-auto">
-                {pageNumber} of {totalPages}
+                {pageNumber}..{totalPages}
             </span>
             <button
                 onClick={() => dispatch(increasePageNumber())}
-                className="mx-2 bg-blue-300 hover:bg-blue-400 px-6 py-3 rounded-lg">
+                className="mx-2 bg-blue-300 hover:bg-blue-400 px-6 py-3 max-sm:px-4 max-sm:py-1 rounded-lg">
                 Next Page
             </button>
         </div>
