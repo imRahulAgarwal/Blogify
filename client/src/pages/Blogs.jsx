@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Card, Container, Pagination } from "../import";
 
 const Blogs = () => {
-    const { blogs } = useSelector((state) => state.blog);
+    const { blogs } = useSelector((state) => state.blog || []);
 
     return (
         <div className="min-h-screen flex">
@@ -14,7 +14,7 @@ const Blogs = () => {
                         className={`grid mt-5 mb-10 ${
                             blogs.length ? "lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6" : ""
                         }`}>
-                        {blogs && blogs?.length ? (
+                        {blogs && blogs.length ? (
                             blogs.map((blog) => <Card blog={blog} key={blog._id} to={blog._id} />)
                         ) : (
                             <h1 className="not-found max-sm:text-2xl text-3xl">
@@ -22,7 +22,7 @@ const Blogs = () => {
                             </h1>
                         )}
                     </div>
-                    {blogs && blogs?.length ? <Pagination /> : null}
+                    {blogs && blogs.length ? <Pagination /> : null}
                 </div>
             </Container>
         </div>
