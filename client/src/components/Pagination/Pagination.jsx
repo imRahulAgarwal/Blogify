@@ -10,15 +10,15 @@ const Pagination = () => {
             <button
                 onClick={() => dispatch(decreasePageNumber())}
                 className="mx-2 bg-blue-300 hover:bg-blue-400 px-6 py-3 max-sm:px-4 max-sm:py-1 rounded-lg">
-                Prev Page
+                Prev
             </button>
             <span className="mx-2 my-auto">
-                {pageNumber}..{totalPages}
+                {pageNumber} of {totalPages}
             </span>
             <button
                 onClick={() => dispatch(increasePageNumber())}
                 className="mx-2 bg-blue-300 hover:bg-blue-400 px-6 py-3 max-sm:px-4 max-sm:py-1 rounded-lg">
-                Next Page
+                Next
             </button>
         </div>
     );
