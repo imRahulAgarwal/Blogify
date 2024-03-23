@@ -27,7 +27,7 @@ const MyBlogs = () => {
                     <h1 className="not-found max-sm:text-2xl text-3xl">Blogs not listed yet</h1>
                 )}
             </div>
-            <Pagination />
+            {blogs && blogs.length ? <Pagination /> : null}
         </Container>
     );
 };

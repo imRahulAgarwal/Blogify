@@ -42,13 +42,18 @@ const listBlogs = async (req, res, next) => {
 const listSpecificBlog = async (req, res, next) => {
     try {
         const { blogId } = req.params;
+        const { userid } = req.query;
         const idResult = await validateObjectId(blogId);
         if (idResult.error) return next(new ErrorHandler(idResult.error.message, 422));
 
         const loggedInUser = req.user;
         const query = { _id: blogId };
 
-        if (!loggedInUser || !loggedInUser.isAdmin) query.status = "Approved";
+        if (userid) {
+            query.userId = userid;
+        }
+
+        if ((!loggedInUser || !loggedInUser.isAdmin) && !userid) query.status = "Approved";
 
         const blog = await Blog.findOne(query);
         if (!blog) return next(new ErrorHandler("Blog not found", 404));

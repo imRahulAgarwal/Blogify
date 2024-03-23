@@ -14,10 +14,12 @@ export class BlogService {
         return response;
     }
 
-    async getBlog(blogId) {
+    async getBlog(blogId, userid = "") {
         const token = localStorage.getItem("token");
+        let url = `${conf.apiUrl}/blogs/${blogId}`;
 
-        const result = await fetch(`${conf.apiUrl}/blogs/${blogId}`, {
+        if (userid) url += `?userid=${userid}`;
+        const result = await fetch(url, {
             headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         });
         const response = await result.json();

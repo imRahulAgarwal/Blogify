@@ -8,7 +8,7 @@ const AboutUs = () => {
                 <div className="my-4">
                     <div className="max-lg:flex">
                         <img
-                            src="../../assets/dummy.jpg"
+                            src="dummy.jpg"
                             alt="Dummy Image"
                             className="lg:float-left mx-auto my-auto rounded-lg lg:mr-4"
                         />
@@ -31,7 +31,7 @@ const AboutUs = () => {
                 <div className="my-4">
                     <div className="max-lg:flex">
                         <img
-                            src="../../assets/dummy-1.jpg"
+                            src="dummy-1.jpg"
                             alt="Dummy Image"
                             className="lg:float-right mx-auto my-auto rounded-lg lg:ml-4"
                         />
@@ -54,7 +54,7 @@ const AboutUs = () => {
                 <div className="my-4">
                     <div className="max-lg:flex">
                         <img
-                            src="../../assets/dummy-2.jpg"
+                            src="dummy-2.jpg"
                             alt="Dummy Image"
                             className="lg:float-left mx-auto my-auto rounded-lg lg:mr-4"
                         />

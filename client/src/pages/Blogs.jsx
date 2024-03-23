@@ -25,7 +25,7 @@ const Blogs = () => {
                             </h1>
                         )}
                     </div>
-                    <Pagination />
+                    {blogs && blogs.length ? <Pagination /> : null}
                 </>
             )}
         </Container>
