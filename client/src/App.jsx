@@ -36,7 +36,7 @@ const App = () => {
     return (
         <div className="flex flex-col min-h-screen relative">
             {!loader ? (
-                <ScaleLoader />
+                <ScaleLoader className="mx-auto my-auto" />
             ) : (
                 <>
                     {window.location.pathname.includes("reset-password") ? null : <Header />}
