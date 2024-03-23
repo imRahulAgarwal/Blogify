@@ -7,6 +7,7 @@ import { setBlogs } from "./store/post/postSlice";
 import { login, logout } from "./store/auth/authSlice";
 import { blogService } from "./api/blogs";
 import ScrollToTop from "./hooks/ScrollToTop";
+import { ScaleLoader } from "react-spinners";
 
 const App = () => {
     const dispatch = useDispatch();
@@ -32,10 +33,16 @@ const App = () => {
 
     return (
         <div className="flex flex-col min-h-screen relative">
-            {window.location.pathname.includes("reset-password") ? null : <Header />}
-            <Outlet />
-            <Footer />
-            <ScrollToTop />
+            {!userData._id ? (
+                <ScaleLoader />
+            ) : (
+                <>
+                    {window.location.pathname.includes("reset-password") ? null : <Header />}
+                    <Outlet />
+                    <Footer />
+                    <ScrollToTop />
+                </>
+            )}
         </div>
     );
 };
