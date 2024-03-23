@@ -4,7 +4,7 @@ import { Card, Container, Pagination } from "../import";
 
 const Blogs = () => {
     const { blogs } = useSelector((state) => state.blog || []);
-
+    console.log(blogs);
     return (
         <div className="min-h-screen flex">
             <Container classes="flex flex-col my-auto">
