@@ -11,7 +11,7 @@ import { ScaleLoader } from "react-spinners";
 
 const App = () => {
     const dispatch = useDispatch();
-    const { userData } = useSelector((state) => state.auth);
+    const { status, userData } = useSelector((state) => state.auth);
     const { pageNumber, authorId } = useSelector((state) => state.blog);
 
     useEffect(() => {
@@ -33,7 +33,7 @@ const App = () => {
 
     return (
         <div className="flex flex-col min-h-screen relative">
-            {!userData && !userData._id ? (
+            {!status && !userData ? (
                 <ScaleLoader />
             ) : (
                 <>
