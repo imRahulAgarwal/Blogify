@@ -12,14 +12,14 @@ import { ScaleLoader } from "react-spinners";
 const App = () => {
     const dispatch = useDispatch();
     const [loader, setLoader] = useState(true);
-    const { status, userData } = useSelector((state) => state.auth);
+    const { userData } = useSelector((state) => state.auth);
     const { pageNumber, authorId } = useSelector((state) => state.blog);
 
     useEffect(() => {
         authService.profile().then(({ user }) => {
             if (user) {
                 dispatch(login(user));
-                setTimeout(() => setLoader(false), 2000);
+                setLoader(false);
             } else {
                 dispatch(logout());
             }
