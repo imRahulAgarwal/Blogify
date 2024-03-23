@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Card, Container, Pagination } from "../import";
-import { BarLoader } from "react-spinners";
+import { PuffLoader, ScaleLoader } from "react-spinners";
 
 const Blogs = () => {
     const { blogs } = useSelector((state) => state.blog);
@@ -9,7 +9,7 @@ const Blogs = () => {
     return (
         <Container classes="flex flex-col my-auto mt-40">
             {!blogs ? (
-                <BarLoader />
+                <ScaleLoader color="#000" className="mx-auto my-auto" />
             ) : (
                 <>
                     <h1 className="blog-section-title section-title">All Blogs</h1>

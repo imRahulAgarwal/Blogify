@@ -5,7 +5,7 @@ import { blogService } from "../api/blogs";
 import moment from "moment-timezone";
 import { useDispatch, useSelector } from "react-redux";
 import { setBlogs } from "../store/post/postSlice";
-import { PuffLoader } from "react-spinners";
+import { ScaleLoader } from "react-spinners";
 
 const Blog = () => {
     const [blog, setBlog] = useState({});
@@ -57,10 +57,10 @@ const Blog = () => {
     }, []);
 
     return (
-        <div className="min-h-screen flex">
+        <div className="min-h-screen flex mt-40 mb-20">
             <Container classes="my-auto flex flex-col">
                 {loading ? (
-                    <PuffLoader className="mx-auto my-auto" />
+                    <ScaleLoader className="mx-auto my-auto" color="#000" />
                 ) : (
                     <div className="w-full sm:px-10 px-5 py-8 bg-white rounded-lg">
                         <img
