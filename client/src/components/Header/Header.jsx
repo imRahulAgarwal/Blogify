@@ -129,7 +129,7 @@ const Header = () => {
                     <Link
                         key={nanoid()}
                         onClick={handleClick}
-                        className="mx-2 text-[#4d4d4d] hover:text-[#1a1a1a] text-center mt-4 md:mt-0">
+                        className="mx-2 block text-[#4d4d4d] hover:text-[#1a1a1a] text-center mt-4 md:mt-0">
                         Logout
                     </Link>
                 ) : null}
