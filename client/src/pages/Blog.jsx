@@ -5,9 +5,11 @@ import { blogService } from "../api/blogs";
 import moment from "moment-timezone";
 import { useDispatch, useSelector } from "react-redux";
 import { setBlogs } from "../store/post/postSlice";
+import { PuffLoader } from "react-spinners";
 
 const Blog = () => {
     const [blog, setBlog] = useState({});
+    const [loading, setLoading] = useState(true);
     const { userData, status } = useSelector((state) => state.auth);
     const { blogId } = useParams();
     const navigate = useNavigate();
@@ -42,8 +44,10 @@ const Blog = () => {
 
     useEffect(() => {
         blogService.getBlog(blogId).then((data) => {
-            if (data.blog) setBlog(data.blog);
-            else {
+            if (data.blog) {
+                setBlog(data.blog);
+                setTimeout(() => setLoading(false), 1000);
+            } else {
                 blogService.getBlogs().then((blogData) => {
                     if (blogData.blogs) dispatch(setBlogs(blogData));
                     navigate("/");
@@ -52,7 +56,9 @@ const Blog = () => {
         });
     }, []);
 
-    return (
+    return loading ? (
+        <PuffLoader color="#000" />
+    ) : (
         <Container classes="flex flex-col mt-40 mb-20">
             <div className="w-full sm:px-10 px-5 py-8 bg-white rounded-lg">
                 <img

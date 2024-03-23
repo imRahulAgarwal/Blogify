@@ -26,6 +26,7 @@ const App = () => {
     useEffect(() => {
         blogService.getBlogs(pageNumber, authourId).then((data) => {
             if (data.blogs) dispatch(setBlogs(data));
+            else dispatch(setBlogs([]));
         });
     }, [pageNumber, authourId, userData]);
 

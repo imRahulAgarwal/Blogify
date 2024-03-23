@@ -6,16 +6,9 @@ const pageLimit = 12;
 const listBlogs = async (req, res, next) => {
     try {
         const user = req.user;
-        const { search, page, userid } = req.query;
+        const { page, userid } = req.query;
 
         const query = {};
-        // If user has searched something the below code will trigger.
-        if (search) {
-            query.$or = [
-                { title: { $regex: search, $option: "i" } },
-                { userName: { $regex: search, $option: "i" } },
-            ];
-        }
 
         // If userid is provided the below code will trigger. For user self blogs
         if (userid) {

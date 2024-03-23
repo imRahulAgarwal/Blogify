@@ -2,19 +2,24 @@ import React, { useState } from "react";
 import { Button, Container, Input } from "../import";
 import { Link, useNavigate } from "react-router-dom";
 import { authService } from "../api/auth";
+import { ScaleLoader } from "react-spinners";
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState("");
+    const [loader, setLoader] = useState(false);
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
+        setLoader(true);
         e.preventDefault();
         const data = await authService.forgotPassword({ email });
         if (data) navigate("/");
         else setEmail("");
     };
 
-    return (
+    return loader ? (
+        <ScaleLoader />
+    ) : (
         <div className="min-h-screen flex">
             <Container classes="flex flex-col my-auto">
                 <div className="shadow-xl mx-auto rounded-lg max-w-xl w-full bg-white py-5 px-5">
