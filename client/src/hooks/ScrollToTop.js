@@ -21,7 +21,7 @@ const ScrollToTop = () => {
 
     useEffect(() => {
         dispatch(setPageNumber());
-
+        console.log(authorId);
         if (pathname.includes("my-blogs")) dispatch(setAuthorId(authorId));
         else dispatch(setAuthorId(null));
     }, [pathname]);
