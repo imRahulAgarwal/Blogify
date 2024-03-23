@@ -17,7 +17,7 @@ const App = () => {
     useEffect(() => {
         authService.profile().then(({ user }) => {
             if (user) {
-                dispatch(login(user));
+                setTimeout(() => dispatch(login(user)), 2000);
             } else {
                 dispatch(logout());
             }
