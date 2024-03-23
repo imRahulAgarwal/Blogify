@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Footer, Header } from "./import";
 import { Outlet } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,18 +11,18 @@ import { ScaleLoader } from "react-spinners";
 
 const App = () => {
     const dispatch = useDispatch();
-    const [loader, setLoader] = useState(true);
     const { userData } = useSelector((state) => state.auth);
     const { pageNumber, authorId } = useSelector((state) => state.blog);
+    const [loader, setLoader] = useState(false);
 
     useEffect(() => {
         authService.profile().then(({ user }) => {
             if (user) {
                 dispatch(login(user));
-                setLoader(false);
             } else {
                 dispatch(logout());
             }
+            setLoader(true);
         });
     }, []);
 
@@ -35,8 +35,8 @@ const App = () => {
 
     return (
         <div className="flex flex-col min-h-screen relative">
-            {loader ? (
-                <ScaleLoader className="mx-auto my-auto" />
+            {!loader ? (
+                <ScaleLoader />
             ) : (
                 <>
                     {window.location.pathname.includes("reset-password") ? null : <Header />}
