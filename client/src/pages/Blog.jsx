@@ -57,12 +57,12 @@ const Blog = () => {
     }, []);
 
     return (
-        <div className="min-h-screen flex mt-40 mb-20">
+        <div className="min-h-screen flex">
             <Container classes="my-auto flex flex-col">
                 {loading ? (
                     <ScaleLoader className="mx-auto my-auto" color="#000" />
                 ) : (
-                    <div className="w-full sm:px-10 px-5 py-8 bg-white rounded-lg">
+                    <div className="w-full sm:px-10 px-5 py-8 bg-white rounded-lg mt-40 mb-20">
                         <img
                             src={blog.image}
                             className="rounded-lg drop-shadow-xl w-full"
