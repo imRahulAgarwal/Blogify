@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Footer, Header } from "./import";
 import { Outlet } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,13 +11,15 @@ import { ScaleLoader } from "react-spinners";
 
 const App = () => {
     const dispatch = useDispatch();
+    const [loader, setLoader] = useState(true);
     const { status, userData } = useSelector((state) => state.auth);
     const { pageNumber, authorId } = useSelector((state) => state.blog);
 
     useEffect(() => {
         authService.profile().then(({ user }) => {
             if (user) {
-                setTimeout(() => dispatch(login(user)), 2000);
+                dispatch(login(user));
+                setTimeout(() => setLoader(false), 2000);
             } else {
                 dispatch(logout());
             }
@@ -33,7 +35,7 @@ const App = () => {
 
     return (
         <div className="flex flex-col min-h-screen relative">
-            {!status && !userData ? (
+            {loader ? (
                 <ScaleLoader className="mx-auto my-auto" />
             ) : (
                 <>
