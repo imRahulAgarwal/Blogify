@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
 import { logout } from "../../store/auth/authSlice";
-import { blogService } from "../../api/blogs";
-import { setBlogs } from "../../store/post/postSlice";
 import { toast } from "react-toastify";
 import conf from "../../conf/conf";
 
@@ -14,7 +12,6 @@ const Header = () => {
     const userAuthStatus = useSelector((state) => state.auth.status);
     const dispatch = useDispatch();
     const navbarRef = useRef(null);
-    const navigate = useNavigate();
 
     const navLinks = [
         {
@@ -64,12 +61,6 @@ const Header = () => {
         localStorage.removeItem("token");
         toast.success("Logged Out", conf.toastOptions);
         dispatch(logout());
-        blogService
-            .getBlogs()
-            .then(({ blogs }) => {
-                if (blogs) dispatch(setBlogs(blogs));
-            })
-            .finally(() => navigate("/"));
     };
 
     useEffect(() => {

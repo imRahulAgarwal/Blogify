@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import { authService } from "../api/auth";
 import { useDispatch } from "react-redux";
 import { login } from "../store/auth/authSlice";
-import { setBlogs } from "../store/post/postSlice";
-import { blogService } from "../api/blogs";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -17,8 +15,6 @@ const Login = () => {
         const { user } = await authService.login({ email, password });
         if (user) {
             dispatch(login(user));
-            const data = await blogService.getBlogs();
-            if (data.blogs) dispatch(setBlogs(data));
         } else {
             setPassword("");
         }
